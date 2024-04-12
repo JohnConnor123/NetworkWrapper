@@ -154,7 +154,9 @@ model_testing.plot_confidence_on_examples()
 epoch_to_load = model_testing.total_epochs//2
 print(f"\n\nLoading epoch #{epoch_to_load}")
 model_testing.load_epoch(epoch_to_load)
-print(f"Best epoch: {model_testing.best_epoch}    Loaded epoch: {model_testing.loaded_epoch}    Total epochs count: {model_testing.total_epochs}")
+print(f"Best epoch: {model_testing.best_epoch}    "
+      f"Loaded epoch: {model_testing.loaded_epoch}    "
+      f"Total epochs count: {model_testing.total_epochs}")
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
@@ -164,7 +166,9 @@ model_testing.plot_confidence_on_examples()
 
 print("\nLoading best epoch")
 model_testing.load_epoch(model_testing.best_epoch)
-print(f"Best epoch: {model_testing.best_epoch}    Loaded epoch: {model_testing.loaded_epoch}    Total epochs count: {model_testing.total_epochs}")
+print(f"Best epoch: {model_testing.best_epoch}    "
+      f"Loaded epoch: {model_testing.loaded_epoch}    "
+      f"Total epochs count: {model_testing.total_epochs}")
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
@@ -175,7 +179,9 @@ model_testing.plot_confidence_on_examples()
 last_untruncated_epoch = 3  # example
 print(f"\nTruncate dump file. Last_untruncated_epoch: {last_untruncated_epoch}")
 model_testing.truncate_dump_file(last_untruncated_epoch=last_untruncated_epoch)
-print(f"Best epoch: {model_testing.best_epoch}    Loaded epoch: {model_testing.loaded_epoch}    Total epochs count: {model_testing.total_epochs}")
+print(f"Best epoch: {model_testing.best_epoch}    "
+      f"Loaded epoch: {model_testing.loaded_epoch}    "
+      f"Total epochs count: {model_testing.total_epochs}")
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
@@ -186,7 +192,9 @@ model_testing.plot_confidence_on_examples()
 start_epoch = 2
 model_testing.resume_model_training(start_epoch=start_epoch, total_epochs=6,
                                     relative_path='Transfer learning\\resumed_trained.pth')
-print(f"Best epoch: {model_testing.best_epoch}    Loaded epoch: {model_testing.loaded_epoch}    Total epochs count: {model_testing.total_epochs}")
+print(f"Best epoch: {model_testing.best_epoch}    "
+      f"Loaded epoch: {model_testing.loaded_epoch}    "
+      f"Total epochs count: {model_testing.total_epochs}")
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
