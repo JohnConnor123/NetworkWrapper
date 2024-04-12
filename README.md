@@ -45,9 +45,10 @@ NetworkWrapper.set_main_paths(main_windows_path, main_colab_path)
 ### Creating NetworkWrapper object
 We create a NetworkWrapper object, wrapping any neural network model in it and passing all the parameters.
 ```python
-model_testing = NetworkWrapper(model=model, epochs=5, train_dataset=train_dataset, val_dataset=val_dataset,
-                               n_classes=n_classes, relative_path='Models\\Transfer learning\\efficientnet_b1.pth',
-                               batch_size=32, num_workers=0, colab_view=False,
+model_testing = NetworkWrapper(model=model, epochs=5, batch_size=32, num_workers=0,
+                               train_dataset=train_dataset, val_dataset=val_dataset,
+                               n_classes=n_classes, colab_view=False,
+                               relative_path='Models\\Transfer learning\\efficientnet_b1.pth',
                                lr=1e-3, scheduler_gamma=0.9,
                                load_pretrained_model=True)
 ```
@@ -75,7 +76,9 @@ model_testing.train_load_model()
 ```
 ### Printing and displaying all information after model initialization
 ```python
-print(f"Best epoch: {model_testing.best_epoch}    Loaded epoch: {model_testing.loaded_epoch}    Total epochs count: {model_testing.total_epochs}")
+print(f"Best epoch: {model_testing.best_epoch}    "
+      f"Loaded epoch: {model_testing.loaded_epoch}    "
+      f"Total epochs count: {model_testing.total_epochs}")
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
@@ -121,6 +124,7 @@ model_testing.protected_attributes.figsize = (6, 4)
 
 ### Example code to demonstrate the operation of the main functionality of the library:
 ```python
+from nn-wrapper import NetworkWrapper
 main_windows_path = "D:\\Python_Projects\\Jupyter\\DL MIPT Stepik\\"
 main_colab_path = r'/content/gdrive/MyDrive/Colab Notebooks/Deep Learning School/'
 NetworkWrapper.set_main_paths(main_windows_path, main_colab_path)
@@ -128,15 +132,18 @@ NetworkWrapper.set_main_paths(main_windows_path, main_colab_path)
 model = models.efficientnet_b1(pretrained=True)
 model.classifier[1] = nn.Linear(in_features=1280, out_features=n_classes)
 
-model_testing = NetworkWrapper(model=model, epochs=5, train_dataset=train_dataset, val_dataset=val_dataset,
-                               n_classes=n_classes, relative_path='Models\\Transfer learning\\efficientnet_b1.pth',
-                               batch_size=32, num_workers=0, colab_view=False,
+model_testing = NetworkWrapper(model=model, epochs=5, batch_size=32, num_workers=0,
+                               train_dataset=train_dataset, val_dataset=val_dataset,
+                               n_classes=n_classes, colab_view=False,
+                               relative_path='Models\\Transfer learning\\efficientnet_b1.pth',
                                lr=1e-3, scheduler_gamma=0.9,
                                load_pretrained_model=True)
 
 model_testing.train_load_model()
 
-print(f"Best epoch: {model_testing.best_epoch}    Loaded epoch: {model_testing.loaded_epoch}    Total epochs count: {model_testing.total_epochs}")
+print(f"Best epoch: {model_testing.best_epoch}    "
+      f"Loaded epoch: {model_testing.loaded_epoch}    "
+      f"Total epochs count: {model_testing.total_epochs}")
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
