@@ -8,7 +8,6 @@ import decimal
 import torch
 import torch.nn as nn
 from torch.optim.lr_scheduler import ExponentialLR
-from torchvision import transforms, datasets
 from torch.utils.data import Dataset, DataLoader
 
 from tqdm import tqdm, tqdm_notebook
