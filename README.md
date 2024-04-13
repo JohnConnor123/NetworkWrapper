@@ -12,13 +12,20 @@ And everything is accompanied by beautiful and formatted output, working in 3 li
 
 The class contains 650 lines of code, and it took almost a month to write. Everything - from paths, separators, depending on the type of OS, type of device for training, and right down to the display formats of progress bars, figsizes (without processing in PyCharm, the pbar of Jupiter/colab moves out, but in Jupiter/colab the pbar PyCharm is moving out) are done AUTOMATICALLY :)
 
-And this class can do a lot more - incl. and further train the model from some epoch :) I started training for 20,50 or even 100 epochs and went for a walk/mind my own business - and then came and looked at all the statistics and loaded into the desired epoch (if you want). Or, using 1 line of code, I trimmed the saved model and optimizer weights for all epochs, starting with the desired one. Or even threw out all the era weights except the best one. And there is no need to restart training many times, fearing that the model will be overtrained or undertrained for the entered number of epochs. Just a fairy tale)
+And this class can do a lot more - including retraining a model from some epoch :) 
+You started training model for 20,50 or even 100 epochs and went for a walk/mind my own business - 
+and then came and looked at all the statistics and loaded into the desired epoch (if you want). 
+Or, using 1 line of code, 
+You trimmed the saved model and optimizer weights for all epochs, starting with the desired one. 
+Or even threw out all the era weights except the best one. 
+And there is no need to restart training many times, 
+fearing that the model will be overtrained or undertrained for the entered number of epochs. Just a fairy tale)
 
 The best way to support my creation is to star the project on Github :)
 
 GitHub: https://github.com/JohnConnor123/NetworkWrapper
-
-Contact email: ivan.eudokimoff2014@gmail.com
+PyPI: https://pypi.org/project/nn-wrapper/  
+Contact: ivan.eudokimoff2014@gmail.com
 
 P.s. There may be minor bugs (and I tried very hard to avoid them and spent more than a week debugging the code). If you have a bug, open an issue on the project's Github or just write to me by email.
 
