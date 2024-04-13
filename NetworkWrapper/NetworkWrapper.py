@@ -50,7 +50,7 @@ class NetworkWrapper:
     def __init__(self, train_dataset, val_dataset, n_classes, model, relative_path, colab_view,
                  batch_size=None, epochs=None, lr=3e-4, scheduler_gamma=0.9, num_workers=0,
                  load_pretrained_model=True, save_best_weights=True, save_weights_by_epoch=True, label_encoder=None):
-        self._is_windows = 'windows' if os.name == 'nt' else 'linux'
+        self._is_windows = True if os.name == 'nt' else False
         self._separator = '\\' if self._is_windows else '/'
         self._main_path = self._main_windows_path if self._is_windows else self._main_colab_path
         if (self._is_windows and not self._main_windows_path) \
