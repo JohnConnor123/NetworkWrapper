@@ -16,7 +16,7 @@ And this class can do a lot more - incl. and further train the model from some e
 
 The best way to support my creation is to star the project on Github :)
 
-GitHub: https://github.com/JohnConnor123/nn-wrapper
+GitHub: https://github.com/JohnConnor123/NetworkWrapper
 
 Contact email: ivan.eudokimoff2014@gmail.com
 
@@ -27,15 +27,17 @@ P.s. Contains only the basic possibilities of the class
 
 ### Installing
 First install the package using pip:
-```bash
-!pip install nn-wrapper
+```python
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip3 install nn-wrapper
 ```
+By default, without first command the library will install the non-CUDA version of torch.
 
 ### Importing
 P.s. Optional: we set the main parts of the path of paths in windows and colab, relative to which relative paths are specified.
 
 ```python
-from nn-wrapper import NetworkWrapper
+from NetworkWrapper import NetworkWrapper
 
 main_windows_path = "D:\\Python_Projects\\Jupyter\\DL MIPT Stepik\\"
 main_colab_path = r'/content/gdrive/MyDrive/Colab Notebooks/Deep Learning School/'
