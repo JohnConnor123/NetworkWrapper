@@ -1,1 +1,1 @@
-from NetworkWrapper import NetworkWrapper
+from .NetworkWrapper import NetworkWrapper
