@@ -380,7 +380,8 @@ class NetworkWrapper:
         fig = plt.figure(figsize=self._figsize)
         fig.suptitle('Accuracy and loss of training/validation datasets by epoch', x=0.5, y=0.94)
         if not self._colab_view:
-            fig.canvas.manager.window.move(*self._graphics_location)
+            x, y = self._graphics_location
+            fig.canvas.manager.window.wm_geometry(f"+{x}+{y}")
         sns.set_style("whitegrid")
 
         total_epochs = max(self._total_epochs, show_truncated_part * (len(self._history['val_loss'])))
@@ -418,7 +419,8 @@ class NetworkWrapper:
                    size='small', rotation='vertical')
         plt.tight_layout()
         if not self._colab_view:
-            fig.canvas.manager.window.move(*self._graphics_location)
+            x, y = self._graphics_location
+            fig.canvas.manager.window.wm_geometry(f"+{x}+{y}")
         sns.set_style("whitegrid")
 
         if not self._is_metrics_updated or self._accuracy_by_class is None:
@@ -445,7 +447,8 @@ class NetworkWrapper:
         fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=self._figsize, sharey=True, sharex=True)
         fig.suptitle('Confidences and actual labels for examples from val_dataset', x=0.5, y=0.97)
         if not self._colab_view:
-            fig.canvas.manager.window.move(*self._graphics_location)
+            x, y = self._graphics_location
+            fig.canvas.manager.window.wm_geometry(f"+{x}+{y}")
 
         axes = [ax] if nrows == ncols == 1 else ax.flatten()
         for fig_x in axes:
