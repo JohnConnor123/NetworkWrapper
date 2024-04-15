@@ -254,14 +254,13 @@ class NetworkWrapper:
             labels = torch.tensor(labels, dtype=torch.int64).to(self._device)
 
             outputs = self.model(inputs)
-            loss = self.criterion(outputs, labels)
+            loss = self.criterion(outputs, labels).mean()  # .mean() на случай, если у нас сегментация, у которой loss - это вектор
             self.optimizer.zero_grad()
             loss.backward()  # расчитать (вычислить) градиенты, не обновить
             self.optimizer.step()
 
             preds = torch.argmax(outputs, 1)  # выбираем класс с наибольшей вероятностью для каждого объекта батча
-            running_loss += loss.item() * inputs.size(
-                0)  # По умолчанию считается средний loss по батчу. Переводим его в суммарный loss, чтобы потом посчитать средний loss уже по эпохе
+            running_loss += loss.item() * inputs.size(0)  # По умолчанию считается средний loss по батчу. Переводим его в суммарный loss, чтобы потом посчитать средний loss уже по эпохе
             running_corrects += torch.sum(preds == labels.data)
             processed_data += inputs.size(0)
 
