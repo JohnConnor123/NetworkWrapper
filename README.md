@@ -91,10 +91,27 @@ print(f"Best epoch: {model_testing.best_epoch}    "
 print("Unpredicted classes", set(model_testing.actual_labels) - set(model_testing.y_preds))
 print(model_testing.get_metrics())
 print(model_testing.get_metrics('stats_by_class'))
+```
+![image](https://github.com/JohnConnor123/NetworkWrapper/assets/106041597/89cf18aa-0812-4645-91b4-dd37d17ae777)
+
+
+```python
 model_testing.plot_metrics()
+```
+![image](https://github.com/JohnConnor123/NetworkWrapper/assets/106041597/fbe543e5-9b22-485a-a0ca-6bd4b754e324)
+
+
+```python
 model_testing.plot_correct_class_prediction_hist()
+```
+![image](https://github.com/JohnConnor123/NetworkWrapper/assets/106041597/80aaa57a-8e5d-4872-b379-4ac4d44a3ae0)
+
+
+```python
 model_testing.plot_confidence_on_examples()
 ```
+![image](https://github.com/JohnConnor123/NetworkWrapper/assets/106041597/77387065-2a95-4d1a-af13-a9c1dcf270f8)
+
 
 ### Loading a specific epoch
 ```python
